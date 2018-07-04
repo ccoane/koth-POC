@@ -16,20 +16,20 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   redClick (event: any) {
-    fetch(`{site}/startTimer/Red`)
+    fetch('https://nerf-data-app-api.herokuapp.com/startTimer/Red')
   };
 
   blueClick (event: any) {
-    fetch('{site}startTimer/Blue');
+    fetch('https://nerf-data-app-api.herokuapp.com/startTimer/Blue');
   };
 
   resetClick (event: any) {
-    fetch('{site}reset');
+    fetch('https://nerf-data-app-api.herokuapp.com/reset');
   };
 
   private startTimerInterval = () => {
     setInterval(() => {
-      fetch('{site}status/')
+      fetch('https://nerf-data-app-api.herokuapp.com/status/')
       .then ((response) => {
         return response.json()
       })
