@@ -10,25 +10,26 @@ var result = null;
 export class AppComponent implements OnInit, OnDestroy {
   red = 'red';
   blue = 'blue';
+  site = 'https://nerf-data-app-api.herokuapp.com/';
 
   ngOnInit() {this.startTimerInterval();}
   ngOnDestroy() {}
 
   redClick (event: any) {
-    fetch('https://secret-taiga-31277.herokuapp.com/startTimer/Red')
+    fetch(`{site}/startTimer/Red`)
   };
 
   blueClick (event: any) {
-    fetch('https://secret-taiga-31277.herokuapp.com/startTimer/Blue');
+    fetch('{site}startTimer/Blue');
   };
 
   resetClick (event: any) {
-    fetch('https://secret-taiga-31277.herokuapp.com/reset');
+    fetch('{site}reset');
   };
 
   private startTimerInterval = () => {
     setInterval(() => {
-      fetch('https://secret-taiga-31277.herokuapp.com/status/')
+      fetch('{site}status/')
       .then ((response) => {
         return response.json()
       })
